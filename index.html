@@ -49,7 +49,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="avatar avatar-sm mt-2">
-                <img src="./assets/avatars/face-1.jpg" alt="..." class="avatar-img rounded-circle">
+                <img src="/src/assets/avatars/face-1.jpg" alt="..." class="avatar-img rounded-circle">
               </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
@@ -360,7 +360,49 @@
       <main role="main" class="main-content">
         <div class="container-fluid">
           <div class="row justify-content-center">
-            <div id="app"></div>
+            <!-- <div id="app"></div> -->
+            <div class="col-12 mb-4">
+              <div class="col-12 mb-4">
+                <div class="card shadow">
+                  <div class="card-header">
+                    <p class="h2 mb-3">
+                      Bienvenue sur PNC
+                    </p>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Chers collaborateurs,
+                    </p>
+                    <p>
+                      Dans le cadre de la mise en œuvre de la stratégie de lutte contre le blanchiment des capitaux et le 
+                      financement du terrorisme qui a été adopté par les acteurs et partenaires stratégiques en 2016, le comité de 
+                      pilotage composé des représentants des administrations spécialisées a initié la mise en place d’une plateforme 
+                      numérique centralisée pour une meilleure synergie d'action dans la lutte  contre la criminalité transnationale 
+                      organisée.
+                    </p>
+                    <p>
+                      Ce projet s’aligne conformément aux recommandations du GAFI dont Madagascar fait l’objet d’un suivi renforcé 
+                      suivant le rapport d‘évaluation adopté en Conseil des Ministres de l’ESAAMLG le Septembre 2018. Les 
+                      renseignements financiers et toutes les autres informations pertinentes sont utilisés de manière appropriée 
+                      par les autorités compétentes dans le cadre des enquêtes sur le blanchiment de capitaux et le financement du 
+                      terrorisme (Résultat immédiat 6).
+                    </p>
+                    <p>
+                      Sans une approche multidisciplinaire, transversale et convergente entre nous cette lutte ne serait efficace.
+                    </p>
+                    <p>
+                      Nous espérons que ce système Hayzara réponde à nos besoins et nos attentes en matière de bonne pratique 
+                      d’échange et diffusion de données standardisées pour mener la lutte contre le blanchiment des capitaux et le 
+                      financement du terrorisme.
+                    </p>
+                    <p>
+                      Le Comité de pilotage.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- .col-12 -->
           </div> <!-- .row -->
         </div> <!-- .container-fluid -->
         <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
@@ -489,5 +531,27 @@
       </main> <!-- main -->
     </div>
     <script type="module" src="/src/main.js"></script>
+    <script src="/src/assets/js/jquery.min.js"></script>
+    <script src="/src/assets/js/popper.min.js"></script>
+    <script src="/src/assets/js/moment.min.js"></script>
+    <script src="/src/assets/js/bootstrap.min.js"></script>
+    <script src="/src/assets/js/simplebar.min.js"></script>
+    <script src='/src/assets/js/daterangepicker.js'></script>
+    <script src='/src/assets/js/jquery.stickOnScroll.js'></script>
+    <script src="/src/assets/js/tinycolor-min.js"></script>
+    <script src="/src/assets/js/config.js"></script>
+    <script src="/src/assets/js/apps.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag()
+      {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-56159088-1');
+    </script>
   </body>
 </html>
