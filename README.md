@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # PNC-2.0
 
 This template should help get you started developing with Vue 3 in Vite.
@@ -27,3 +28,6 @@ npm run dev
 ```sh
 npm run build
 ```
+=======
+# PNC-2.0
+>>>>>>> 175c1e9e6b9224dc8a3779ed6a88c0de5e9352c2
