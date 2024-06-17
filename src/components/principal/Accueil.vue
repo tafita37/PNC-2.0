@@ -1,43 +1,65 @@
+<script setup>
+  import { onMounted, reactive, ref } from 'vue';
+  import "@/assets/js/tinycolor-min.js";
+  import Header from './../reusable/Header.vue'
+
+  var switcher=null;
+  onMounted(() => {
+    switcher = document.querySelector("#modeSwitcher");
+  });
+
+  "use strict";
+
+  var base = {
+    defaultFontFamily: "Overpass, sans-serif",
+    primaryColor: "#1b68ff",
+    secondaryColor: "#4f4f4f",
+    successColor: "#3ad29f",
+    warningColor: "#ffc107",
+    infoColor: "#17a2b8",
+    dangerColor: "#dc3545",
+    darkColor: "#343a40",
+    lightColor: "#f2f3f6"
+  };
+
+  var extend = {
+    primaryColorLight: tinycolor(base.primaryColor).lighten(10).toString(),
+    primaryColorLighter: tinycolor(base.primaryColor).lighten(30).toString(),
+    primaryColorDark: tinycolor(base.primaryColor).darken(10).toString(),
+    primaryColorDarker: tinycolor(base.primaryColor).darken(30).toString()
+  };
+
+  var chartColors = [
+    base.primaryColor,
+    base.successColor,
+    "#6f42c1",
+    extend.primaryColorLighter
+  ];
+
+  var ouvert=true;
+
+  function collapse() {
+    if($(".vertical").hasClass("narrow")) {
+      $(".vertical").toggleClass("open") 
+    }
+    else {
+      $(".vertical").toggleClass("collapsed"),
+      $(".vertical").hasClass("hover") && $(".vertical").removeClass("hover")
+    }
+    ouvert=!ouvert;
+    console.log(ouvert);
+  }
+
+  function collapseOver() {
+    console.log(ouvert);
+    if(ouvert==false) {
+      collapse();
+    }
+  }
+</script>
 <template>
     <div class="wrapper">
-      <nav class="topnav navbar navbar-light">
-        <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar" @click.prevent="collapse">
-          <i class="fe fe-menu navbar-toggler-icon"></i>
-        </button>
-        <form class="form-inline mr-auto searchform text-muted">
-          <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" type="search" placeholder="Type something..." aria-label="Search">
-        </form>
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link text-muted my-2" href="#" id="modeSwitcher" data-mode="dark" @click="modeSwitch">
-              <i class="fe fe-sun fe-16"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-shortcut">
-              <span class="fe fe-grid fe-16"></span>
-            </a>
-          </li>
-          <li class="nav-item nav-notif">
-            <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-notif">
-              <span class="fe fe-bell fe-16"></span>
-              <span class="dot dot-md bg-success"></span>
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="avatar avatar-sm mt-2">
-                <img src="/src/assets/avatars/face-1.jpg" alt="..." class="avatar-img rounded-circle">
-              </span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Profile</a>
-              <a class="dropdown-item" href="#">Settings</a>
-              <a class="dropdown-item" href="#">Activities</a>
-            </div>
-          </li>
-        </ul>
-      </nav>
+      <Header :collapse-function="collapse"/>
       <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
         <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
           <i class="fe fe-x"><span class="sr-only"></span></i>
@@ -508,144 +530,6 @@
       </main> <!-- main -->
     </div>
 </template>
-<script setup>
-import { onMounted, reactive, ref } from 'vue';
-import "@/assets/js/tinycolor-min.js";
-
-
-var curentTheme=null;
-var dark=null;
-var light=null;
-var switcher=null;
-onMounted(() => {
-  curentTheme = localStorage.getItem("mode");
-  dark = document.querySelector("#darkTheme");
-  light = document.querySelector("#lightTheme");
-  switcher = document.querySelector("#modeSwitcher");
-});
-
-"use strict";
-
-var base = {
-  defaultFontFamily: "Overpass, sans-serif",
-  primaryColor: "#1b68ff",
-  secondaryColor: "#4f4f4f",
-  successColor: "#3ad29f",
-  warningColor: "#ffc107",
-  infoColor: "#17a2b8",
-  dangerColor: "#dc3545",
-  darkColor: "#343a40",
-  lightColor: "#f2f3f6"
-};
-
-var extend = {
-  primaryColorLight: tinycolor(base.primaryColor).lighten(10).toString(),
-  primaryColorLighter: tinycolor(base.primaryColor).lighten(30).toString(),
-  primaryColorDark: tinycolor(base.primaryColor).darken(10).toString(),
-  primaryColorDarker: tinycolor(base.primaryColor).darken(30).toString()
-};
-
-var chartColors = [
-  base.primaryColor,
-  base.successColor,
-  "#6f42c1",
-  extend.primaryColorLighter
-];
-
-var colors = {
-  bodyColor: "#6c757d",
-  headingColor: "#495057",
-  borderColor: "#e9ecef",
-  backgroundColor: "#f8f9fa",
-  mutedColor: "#adb5bd",
-  chartTheme: "light"
-};
-
-var darkColor = {
-  bodyColor: "#adb5bd",
-  headingColor: "#e9ecef",
-  borderColor: "#212529",
-  backgroundColor: "#495057",
-  mutedColor: "#adb5bd",
-  chartTheme: "dark"
-};
-
-function modeSwitch() {
-  console.log("abc");
-  var currentMode = localStorage.getItem("mode");
-
-  if (currentMode) {
-    if (currentMode === "dark") {
-      dark.disabled = true;
-      light.disabled = false;
-      localStorage.setItem("mode", "light");
-    } else {
-      dark.disabled = false;
-      light.disabled = true;
-      localStorage.setItem("mode", "dark");
-    }
-  } else {
-    if ($("body").hasClass("dark")) {
-      dark.disabled = false;
-      light.disabled = true;
-      localStorage.setItem("mode", "dark");
-    } else {
-      dark.disabled = true;
-      light.disabled = false;
-      localStorage.setItem("mode", "light");
-    }
-  }
-}
-
-
-if (curentTheme) {
-  if (curentTheme === "dark") {
-    dark.disabled = false;
-    light.disabled = true;
-    colors = darkColor;
-  } else if (curentTheme === "light") {
-    dark.disabled = true;
-    light.disabled = false;
-  }
-
-  if (switcher) {
-    switcher.dataset.mode = curentTheme;
-  } else {
-    console.error('#modeSwitcher non trouvé dans le DOM');
-  }
-} else {
-  if ($("body").hasClass("dark")) {
-    colors = darkColor;
-    localStorage.setItem("mode", "dark");
-  } else {
-    localStorage.setItem("mode", "light");
-  }
-}
-
-var ouvert=true;
-
-function collapse() {
-  if($(".vertical").hasClass("narrow")) {
-    $(".vertical").toggleClass("open") 
-  }
-  else {
-    $(".vertical").toggleClass("collapsed"),
-    $(".vertical").hasClass("hover") && $(".vertical").removeClass("hover")
-  }
-  ouvert=!ouvert;
-  console.log(ouvert);
-}
-
-function collapseOver() {
-  console.log(ouvert);
-  if(ouvert==false) {
-    collapse();
-  }
-}
-
-
-
-</script>
 <style lang="">
 
 </style>
