@@ -3781,7 +3781,8 @@ input[type="button"].btn-block {
   overflow: hidden;
   line-height: 0;
   font-size: 0.65625rem;
-  background-color: #343a40;
+  /* background-color: #343a40; */
+  background-color: #fff;
   border-radius: 0.25rem; }
 
 .progress-bar {

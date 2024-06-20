@@ -1,16 +1,5 @@
 "use strict";
 
-var base = {
-  defaultFontFamily: "Overpass, sans-serif",
-  primaryColor: "#1b68ff",
-  secondaryColor: "#4f4f4f",
-  successColor: "#3ad29f",
-  warningColor: "#ffc107",
-  infoColor: "#17a2b8",
-  dangerColor: "#dc3545",
-  darkColor: "#343a40",
-  lightColor: "#f2f3f6"
-};
 
 var extend = {
   primaryColorLight: tinycolor(base.primaryColor).lighten(10).toString(),
