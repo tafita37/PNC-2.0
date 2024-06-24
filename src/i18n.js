@@ -9,7 +9,7 @@ const messages = {
   FR: frMess
 };
 
-var currentLangage='fr';
+var currentLangage='FR';
 if(sessionStorage.getItem("current_language")) {
     currentLangage=sessionStorage.getItem("current_language");
 } else {
