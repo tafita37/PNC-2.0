@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted } from 'vue';
 
+
 var dark = null;
 
 var curentTheme = null;

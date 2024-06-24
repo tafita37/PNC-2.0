@@ -4,7 +4,7 @@
     import HeaderBegin from './../reusable/HeaderBegin.vue'
     import { reactive } from 'vue';
 
-    var visiblePage = reactive([2]);
+    var visiblePage = reactive([]);
 
     var ouvert=true;
 

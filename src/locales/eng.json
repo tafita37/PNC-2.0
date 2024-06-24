@@ -1,0 +1,25 @@
+{
+    "header" : [
+        {
+            "name" : "RECEPTION",
+            "url" : "/"
+        },
+        {
+            "name" : "ABOUT US",
+            "url" : "/about"
+        },
+        {
+            "name" : "CONNECTION",
+            "url" : "/customerLogin"
+        }
+    ],
+    "pageAccueil": {
+        "welcomeMessage": "Welcome to the Malagasy National Communication Platform",
+        "introPhrase" : "Dear employees,",
+        "firstPhrase" : "As part of the implementation of the strategy to combat money laundering and the financing of terrorism which was adopted by strategic actors and partners in 2016, the steering committee composed of representatives of specialized administrations has initiated the establishment of a centralized digital platform for a better synergy of action in the fight against transnational organized crime.",
+        "secondPhrase" : "This project is in line with the recommendations of the FATF, of which Madagascar is subject to enhanced monitoring following the evaluation report adopted by the ESAAMLG Council of Ministers on September 2018. Financial intelligence and all other relevant information is used appropriately by competent authorities in the context of money laundering and terrorist financing investigations (Immediate Outcome 6).",
+        "thirdPhrase": "Without a multidisciplinary, transversal and convergent approach between us, this fight would not be effective.",
+        "concludePhrase": "We hope that this Hayzara system meets our needs and expectations in terms of good practice in the exchange and dissemination of standardized data to lead the fight against money laundering and terrorist financing.",
+        "who": "The Steering Committee."
+    }
+}

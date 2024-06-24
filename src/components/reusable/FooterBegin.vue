@@ -31,7 +31,7 @@
           </div>
         </div>
         <div class="text-center">
-          <small>&copy; 2024 SAMIFIN. Tous droits réservés.</small>
+          <small>&copy; 2024 RANDRIAMBOLOLONA Tafita Anaël. Tous droits réservés.</small>
         </div>
       </div>
     </footer>

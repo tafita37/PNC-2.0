@@ -1,0 +1,25 @@
+{
+    "header" : [
+        {
+            "name" : "ACCUEIL",
+            "url" : "/"
+        },
+        {
+            "name" : "A PROPOS",
+            "url" : "/about"
+        },
+        {
+            "name" : "CONNEXION",
+            "url" : "/customerLogin"
+        }
+    ],
+    "pageAccueil": {
+        "welcomeMessage": "Bienvenue sur la Plateforme National de Communication Malagasy",
+        "introPhrase": "Chers collaborateurs,",
+        "firstPhrase": "Dans le cadre de la mise en œuvre de la stratégie de lutte contre le blanchiment des capitaux et le financement du terrorisme qui a été adopté par les acteurs et partenaires stratégiques en 2016, le comité de pilotage composé des représentants des administrations spécialisées a initié la mise en place d’une plateforme numérique centralisée pour une meilleure synergie d'action dans la lutte contre la criminalité transnationale organisée.",
+        "secondPhrase": "Ce projet s’aligne conformément aux recommandations du GAFI dont Madagascar fait l’objet d’un suivi renforcé suivant le rapport d‘évaluation adopté en Conseil des Ministres de l’ESAAMLG le Septembre 2018. Les renseignements financiers et toutes les autres informations pertinentes sont utilisés de manière appropriée par les autorités compétentes dans le cadre des enquêtes sur le blanchiment de capitaux et le financement du terrorisme (Résultat immédiat 6).",
+        "thirdPhrase": "Sans une approche multidisciplinaire, transversale et convergente entre nous cette lutte ne serait efficace.",
+        "concludePhrase": "Nous espérons que ce système Hayzara réponde à nos besoins et nos attentes en matière de bonne pratique d’échange et diffusion de données standardisées pour mener la lutte contre le blanchiment des capitaux et le financement du terrorisme.",
+        "who": "Le Comité de pilotage."
+    }
+}

@@ -1,6 +1,19 @@
 <script setup>
+import { NB_PAGE_HEADER_BEGIN } from '@/Constantes';
+import { languages } from '@/languages';
 import router from '@/router';
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { t, locale } = useI18n();
+
+var specialLangage=ref(sessionStorage.getItem("current_language"));
+
+function changeLanguage(lang) {
+  locale.value = lang;
+  sessionStorage.setItem("current_language", lang);
+  specialLangage.value=sessionStorage.getItem("current_language");
+}
 
 var dark = null;
 
@@ -92,19 +105,23 @@ function modeSwitch() {
     }
   }
 }
+
+
+// const headerItems = t('header[0].name');
+
 </script>
 <style scoped>
-  #begin-header-id {
-    margin-left: 0rem
-  }
+#begin-header-id {
+  margin-left: 0rem
+}
 
-  .nav-item {
-    cursor: pointer
-  }
+.nav-item {
+  cursor: pointer
+}
 </style>
 <template>
   <nav id="begin-header-id" class="topnav navbar navbar-light">
-    <img src="./../../assets/img/mg.jpeg" alt="" srcset="" width="50px" height="50px"/>
+    <img src="./../../assets/img/mg.jpeg" alt="" srcset="" width="50px" height="50px" />
     <!-- PNC -->
     <ul class="nav">
       <li class="nav-item">
@@ -112,7 +129,12 @@ function modeSwitch() {
           <i class="fe fe-sun fe-16"></i>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" v-for="i in NB_PAGE_HEADER_BEGIN">
+        <a class="nav-link text-muted" @click.prevent="() => router.push(t('header['+(i-1)+'].url'))">
+          {{ t('header['+(i-1)+'].name') }}
+        </a>
+      </li>
+      <!-- <li class="nav-item">
         <a class="nav-link text-muted" @click.prevent="() => router.push('/')">
           ACCUEIL
         </a>
@@ -122,17 +144,20 @@ function modeSwitch() {
       </li>
       <li class="nav-item">
         <a class="nav-link  text-muted" @click.prevent="() => router.push('/customerLogin')">CONNEXION</a>
-      </li>
+      </li> -->
       <li class="nav-item dropdown">
-        <a class="nav-link  text-muted dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link  text-muted dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink"
+          role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span class="avatar avatar-sm mt-2">
-            FR
+            {{ specialLangage }}
           </span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">ENG</a>
-          <a class="dropdown-item" href="#">MG</a>
+          <a class="dropdown-item" v-for="language in languages" @click.prevent="() => changeLanguage(language)">
+            {{ language }}
+          </a>
+          <!-- <a class="dropdown-item" href="#" @click.prevent="() => changeLanguage('ENG')">ENG</a>
+          <a class="dropdown-item" href="#">MG</a> -->
         </div>
       </li>
     </ul>

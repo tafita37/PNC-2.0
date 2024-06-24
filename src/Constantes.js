@@ -1,0 +1,1 @@
+export const NB_PAGE_HEADER_BEGIN=3;

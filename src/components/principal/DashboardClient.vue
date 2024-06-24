@@ -1,8 +1,7 @@
 <script setup>
 import BeginComponent from '../reusable/BeginComponent.vue';
-import { Pie } from 'vue-chartjs';
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from 'chart.js';
-import { onMounted, reactive, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement);
 

@@ -1,14 +1,17 @@
 <script setup>
-import { onMounted } from 'vue';
-import "@/assets/js/tinycolor-min.js";
-import FooterBegin from './../reusable/FooterBegin.vue'
-import BeginComponent from '../reusable/BeginComponent.vue';
+  import { onMounted } from 'vue';
+  import "@/assets/js/tinycolor-min.js";
+  import FooterBegin from './../reusable/FooterBegin.vue'
+  import BeginComponent from '../reusable/BeginComponent.vue';
+  import { useI18n } from 'vue-i18n';
 
-var switcher = null;
+  const { t, locale } = useI18n();
 
-onMounted(() => {
-  switcher = document.querySelector("#modeSwitcher");
-});
+  var switcher = null;
+
+  onMounted(() => {
+    switcher = document.querySelector("#modeSwitcher");
+  });
 </script>
 <style scoped>
   .begin-content {
@@ -27,46 +30,27 @@ onMounted(() => {
               <div class="card shadow">
                 <div class="card-header">
                   <p class="h2 mb-3">
-                    Bienvenue sur la Plateforme National de Communication Malagasy
+                    {{ t('pageAccueil.welcomeMessage') }}
                   </p>
                 </div>
                 <div class="card-body">
                   <p>
-                    Chers collaborateurs,
+                    {{ t('pageAccueil.introPhrase') }}
                   </p>
                   <p>
-                    Dans le cadre de la mise en œuvre de la stratégie de lutte contre le blanchiment des capitaux et le
-                    financement du
-                    terrorisme qui a été adopté par les acteurs et partenaires stratégiques en 2016, le comité de
-                    pilotage composé des représentants des administrations spécialisées a initié la mise en place d’une
-                    plateforme
-                    numérique centralisée pour une meilleure synergie d'action dans la lutte contre la criminalité
-                    transnationale
-                    organisée.
+                    {{ t('pageAccueil.firstPhrase') }}
                   </p>
                   <p>
-                    Ce projet s’aligne conformément aux recommandations du GAFI dont Madagascar fait l’objet d’un suivi
-                    renforcé
-                    suivant le rapport d‘évaluation adopté en Conseil des Ministres de l’ESAAMLG le Septembre 2018. Les
-                    renseignements financiers et toutes les autres informations pertinentes sont utilisés de manière
-                    appropriée
-                    par les autorités compétentes dans le cadre des enquêtes sur le blanchiment de capitaux et le
-                    financement du
-                    terrorisme (Résultat immédiat 6).
+                    {{ t('pageAccueil.secondPhrase') }}
                   </p>
                   <p>
-                    Sans une approche multidisciplinaire, transversale et convergente entre nous cette lutte ne serait
-                    efficace.
+                    {{ t('pageAccueil.thirdPhrase') }}
                   </p>
                   <p>
-                    Nous espérons que ce système Hayzara réponde à nos besoins et nos attentes en matière de bonne
-                    pratique
-                    d’échange et diffusion de données standardisées pour mener la lutte contre le blanchiment des
-                    capitaux et le
-                    financement du terrorisme.
+                    {{ t('pageAccueil.concludePhrase') }}
                   </p>
                   <p>
-                    Le Comité de pilotage.
+                    {{ t('pageAccueil.who') }}
                   </p>
                 </div>
               </div>
