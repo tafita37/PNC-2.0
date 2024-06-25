@@ -3,6 +3,9 @@
     import "@/assets/js/tinycolor-min.js";
     import FooterBegin from './../reusable/FooterBegin.vue'
     import BeginComponent from '../reusable/BeginComponent.vue';
+    import { useI18n } from 'vue-i18n';
+
+    const { t, locale } = useI18n();
 
     var ouvert = true;
 
@@ -84,39 +87,21 @@
                             <div class="card shadow">
                                 <div class="card-header">
                                     <p class="h2 mb-3">
-                                        PNC, un outil simple, sécurisé et rapide.
+                                        {{t('aboutPage.firstMessage')}}
                                     </p>
                                 </div>
                                 <div class="card-body">
                                     <p>
-                                        Le système PNC est conçu par des techniciens Malagasy et a bénéficié d'un appui
-                                        financier des bailleurs de fonds
-                                        notamment le PNUD et le COMESA. Elle a pour vocation de mettre à disposition des
-                                        administrations spécialisées i)
-                                        un fichier central numérique contenant des informations liées aux infractions
-                                        détectées et communiquées par les
-                                        autorités compétentes, ii) un système de communication servant à sécuriser nos
-                                        échanges d’information à caractère
-                                        confidentiel et iii) un tableau de bord commun mettant en exergue une
-                                        cartographie de risque et des données
-                                        statistiques en lien au de blanchiment des capitaux et de financement du
-                                        terrorisme à Madagascar.
+                                        {{t('aboutPage.firstParagraph')}}
                                     </p>
                                     <p>
-                                        Le système PNC renforce la sécurisation de nos échanges. Des normes de sécurité
-                                        sont prises en compte notamment la
-                                        référence ISO-2700x relatif à la sécurité des systèmes d'information.
+                                        {{t('aboutPage.secondParagraph')}}
                                     </p>
                                     <p>
-                                        Le système PNC va accélérer le processus actuel en mettant à disposition des
-                                        opérationnels les outils modernes.
-                                        Il facilite les missions d’enquêtes, d’investigation criminelle, d’inspection
-                                        et/ou de contrôle de différentes
-                                        autorités.
+                                        {{t('aboutPage.thirdParagraph')}}
                                     </p>
                                     <p>
-                                        L’accès est conditionné par l’adhésion d’une charte accompagnée d’un formulaire
-                                        d’inscription.
+                                        {{t('aboutPage.lastPhrase')}}
                                     </p>
                                 </div>
                             </div>

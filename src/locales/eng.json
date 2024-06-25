@@ -1,25 +1,41 @@
 {
-    "header" : [
+    "header": [
         {
-            "name" : "RECEPTION",
-            "url" : "/"
+            "name": "RECEPTION",
+            "url": "/"
         },
         {
-            "name" : "ABOUT US",
-            "url" : "/about"
+            "name": "ABOUT US",
+            "url": "/about"
         },
         {
-            "name" : "CONNECTION",
-            "url" : "/customerLogin"
+            "name": "CONNECTION",
+            "url": "/customerLogin"
         }
     ],
     "pageAccueil": {
         "welcomeMessage": "Welcome to the Malagasy National Communication Platform",
-        "introPhrase" : "Dear employees,",
-        "firstPhrase" : "As part of the implementation of the strategy to combat money laundering and the financing of terrorism which was adopted by strategic actors and partners in 2016, the steering committee composed of representatives of specialized administrations has initiated the establishment of a centralized digital platform for a better synergy of action in the fight against transnational organized crime.",
-        "secondPhrase" : "This project is in line with the recommendations of the FATF, of which Madagascar is subject to enhanced monitoring following the evaluation report adopted by the ESAAMLG Council of Ministers on September 2018. Financial intelligence and all other relevant information is used appropriately by competent authorities in the context of money laundering and terrorist financing investigations (Immediate Outcome 6).",
+        "introPhrase": "Dear employees,",
+        "firstPhrase": "As part of the implementation of the strategy to combat money laundering and the financing of terrorism which was adopted by strategic actors and partners in 2016, the steering committee composed of representatives of specialized administrations has initiated the establishment of a centralized digital platform for a better synergy of action in the fight against transnational organized crime.",
+        "secondPhrase": "This project is in line with the recommendations of the FATF, of which Madagascar is subject to enhanced monitoring following the evaluation report adopted by the ESAAMLG Council of Ministers on September 2018. Financial intelligence and all other relevant information is used appropriately by competent authorities in the context of money laundering and terrorist financing investigations (Immediate Outcome 6).",
         "thirdPhrase": "Without a multidisciplinary, transversal and convergent approach between us, this fight would not be effective.",
         "concludePhrase": "We hope that this Hayzara system meets our needs and expectations in terms of good practice in the exchange and dissemination of standardized data to lead the fight against money laundering and terrorist financing.",
         "who": "The Steering Committee."
+    },
+    "aboutPage": {
+        "firstMessage": "PNC, a simple, secure and fast tool.",
+        "firstParagraph" : "The PNC system is designed by Malagasy technicians and has received financial support from donors, notably the UNDP and COMESA. Its purpose is to provide specialized administrations with i) a central digital file containing information related to offenses detected and reported by competent authorities, ii) a communication system designed to secure our exchanges of confidential information, and iii) a common dashboard highlighting a risk map and statistical data related to money laundering and terrorist financing in Madagascar.",
+        "secondParagraph" : "The cabin crew system reinforces the security of our exchanges. Security standards are taken into account, in particular the ISO-2700x reference relating to the security of information systems.",
+        "thirdParagraph" : "The cabin crew system will speed up the current process by providing operational staff with modern tools. It facilitates the investigation, criminal investigation, inspection and/or control missions of various authorities.",
+        "lastPhrase" : "Access is conditional on the adherence of a charter accompanied by a registration form."
+    },
+    "loginClientPage" : {
+        "connectMessage" : "Sign in",
+        "connectSubmitButton" : "Login"
+    },
+    "footer": {
+        "footerUseFullLinks": "Useful links",
+        "partners" : "Partners",
+        "droit" : "All rights reserved."
     }
 }

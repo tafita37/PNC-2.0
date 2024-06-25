@@ -21,5 +21,21 @@
         "thirdPhrase": "Sans une approche multidisciplinaire, transversale et convergente entre nous cette lutte ne serait efficace.",
         "concludePhrase": "Nous espérons que ce système Hayzara réponde à nos besoins et nos attentes en matière de bonne pratique d’échange et diffusion de données standardisées pour mener la lutte contre le blanchiment des capitaux et le financement du terrorisme.",
         "who": "Le Comité de pilotage."
+    },
+    "aboutPage": {
+        "firstMessage": "PNC, un outil simple, sécurisé et rapide.",
+        "firstParagraph" : "Le système PNC est conçu par des techniciens Malagasy et a bénéficié d'un appui financier des bailleurs de fonds notamment le PNUD et le COMESA. Elle a pour vocation de mettre à disposition des administrations spécialisées i) un fichier central numérique contenant des informations liées aux infractions détectées et communiquées par les autorités compétentes, ii) un système de communication servant à sécuriser nos échanges d’information à caractère confidentiel et iii) un tableau de bord commun mettant en exergue une cartographie de risque et des données statistiques en lien au de blanchiment des capitaux et de financement du terrorisme à Madagascar.",
+        "secondParagraph" : "Le système PNC renforce la sécurisation de nos échanges. Des normes de sécurité sont prises en compte notamment la référence ISO-2700x relatif à la sécurité des systèmes d'information.",
+        "thirdParagraph" : "Le système PNC va accélérer le processus actuel en mettant à disposition des opérationnels les outils modernes. Il facilite les missions d’enquêtes, d’investigation criminelle, d’inspection et/ou de contrôle de différentes autorités.",
+        "lastPhrase" : "L’accès est conditionné par l’adhésion d’une charte accompagnée d’un formulaire d’inscription."
+    },
+    "loginClientPage" : {
+        "connectMessage" : "Se connecter",
+        "connectSubmitButton" : "Connectez-vous"
+    },
+    "footer": {
+        "footerUseFullLinks": "Liens utiles",
+        "partners" : "Partenaires",
+        "droit" : "Tous droits réservés."
     }
 }
