@@ -2,12 +2,10 @@
     import Header from './../reusable/Header.vue'
     import DropDownMenuLeft from './../reusable/DropDownMenuLeft.vue'
     import HeaderBegin from './../reusable/HeaderBegin.vue'
-    import { reactive } from 'vue';
-
-    var visiblePage = reactive([]);
+    import { isTokenExpired } from '@/Constantes';
+    import { onMounted } from 'vue';
 
     var ouvert=true;
-
 
     function collapse() {
         if ($(".vertical").hasClass("narrow")) {
@@ -29,11 +27,15 @@
             collapse();
         }
     }
+
+    onMounted(() => {
+        console.log(isTokenExpired());
+    })
 </script>
 <template>
-    <HeaderBegin :collapse-function="collapse" v-if="visiblePage.length == 0" />
+    <HeaderBegin :collapse-function="collapse" v-if="isTokenExpired()==true" />
     <Header :collapse-function="collapse" v-else />
-    <DropDownMenuLeft :collapse-over-function="collapseOver" v-if="visiblePage.length != 0" />
+    <DropDownMenuLeft :collapse-over-function="collapseOver" v-if="isTokenExpired() == false" />
 </template>
 <style scoped>
     

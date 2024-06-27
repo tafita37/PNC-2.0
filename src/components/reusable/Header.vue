@@ -1,12 +1,22 @@
 <script setup>
-import { onMounted } from 'vue';
+import { languages } from '@/languages';
+import { onMounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
+const { t, locale } = useI18n();
 
 var dark = null;
 
 var curentTheme = null;
 
 var light = null;
+var specialLangage=ref(sessionStorage.getItem("current_language"));
+
+function changeLanguage(lang) {
+  locale.value = lang;
+  sessionStorage.setItem("current_language", lang);
+  specialLangage.value=sessionStorage.getItem("current_language");
+}
 
 var darkColor = {
   bodyColor: "#adb5bd",
@@ -108,6 +118,19 @@ function modeSwitch() {
         <a class="nav-link text-muted my-2" href="#" id="modeSwitcher" data-mode="dark" @click="modeSwitch">
           <i class="fe fe-sun fe-16"></i>
         </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link text-muted my-2" href="#" id="navbarDropdownMenuLink"
+          role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="avatar avatar-sm mt-2">
+            {{ specialLangage }}
+          </span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" v-for="language in languages" @click.prevent="() => changeLanguage(language)">
+            {{ language }}
+          </a>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-shortcut">

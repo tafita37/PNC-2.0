@@ -46,6 +46,7 @@ const props = defineProps({
 });
 
 onMounted(() => {
+  console.log("header");
   light = document.querySelector("#lightTheme");
   dark = document.querySelector("#darkTheme");
   curentTheme = localStorage.getItem("mode");
@@ -106,9 +107,6 @@ function modeSwitch() {
   }
 }
 
-
-// const headerItems = t('header[0].name');
-
 </script>
 <style scoped>
 #begin-header-id {
@@ -134,17 +132,6 @@ function modeSwitch() {
           {{ t('header['+(i-1)+'].name') }}
         </a>
       </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link text-muted" @click.prevent="() => router.push('/')">
-          ACCUEIL
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link  text-muted" @click.prevent="() => router.push('/about')">A PROPOS</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link  text-muted" @click.prevent="() => router.push('/customerLogin')">CONNEXION</a>
-      </li> -->
       <li class="nav-item dropdown">
         <a class="nav-link  text-muted dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink"
           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

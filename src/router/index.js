@@ -1,61 +1,60 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Accueil from '../components/principal/Accueil.vue'
-import APropos from '@/components/principal/APropos.vue'
-import LoginClient from '@/components/principal/LoginClient.vue'
-import LoginAdmin from '@/components/principal/LoginAdmin.vue'
-import DashboardClient from '@/components/principal/DashboardClient.vue'
-import EntityList from '@/components/principal/EntityList.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path : '/adminBack',
-      children : 
-      [ 
+      path: '/adminBack',
+      component: () => import('../components/principal/LoginAdmin.vue'),
+      children: [
         {
-          path : '',
-          name : 'loginAdminPage',
-          component : LoginAdmin
+          path: '',
+          name: 'loginAdminPage',
+          component: () => import('../components/principal/LoginAdmin.vue')
         },
         {
-          path : 'back',
-          name : 'backend',
-          component : Accueil
+          path: 'back',
+          name: 'backend',
+          component: () => import('../components/principal/Accueil.vue')
         },
         {
-          path : 'entityLists',
-          name : 'entities',
-          component : EntityList
+          path: 'entityLists',
+          name: 'entities',
+          component: () => import('../components/principal/EntityList.vue')
         }
       ]
     },
     {
+      path: '/userLists',
+      name: 'users',
+      component: () => import('../components/principal/UserList.vue')
+    },
+    {
       path: '/',
       name: 'reception',
-      component: Accueil
+      component: () => import('../components/principal/Accueil.vue')
     },
     {
       path: '/reception',
       name: 'reception2',
-      component: Accueil
+      component: () => import('../components/principal/Accueil.vue')
     },
     {
       path: '/about',
       name: 'about',
-      component: APropos
+      component: () => import('@/components/principal/APropos.vue')
     },
     {
       path: '/customerLogin',
       name: 'customerLogin',
-      component: LoginClient
+      component: () => import('@/components/principal/LoginClient.vue')
     },
     {
       path: '/customerDashboard',
       name: 'customerDashboard',
-      component: DashboardClient
+      component: () => import('@/components/principal/DashboardClient.vue')
     }
   ]
-})
+});
 
 export default router

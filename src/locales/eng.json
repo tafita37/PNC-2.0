@@ -13,6 +13,18 @@
             "url": "/customerLogin"
         }
     ],
+    "dropDownMenuLeft" : [
+        {
+            "icon" : "fe fe-users fe-16",
+            "name" : "Yearbook",
+            "url" : "/userLists"
+        },
+        {
+            "icon" : "fe fe-list fe-16",
+            "name" : "Entities",
+            "url" : "/"
+        }
+    ],
     "pageAccueil": {
         "welcomeMessage": "Welcome to the Malagasy National Communication Platform",
         "introPhrase": "Dear employees,",
@@ -37,5 +49,10 @@
         "footerUseFullLinks": "Useful links",
         "partners" : "Partners",
         "droit" : "All rights reserved."
+    },
+    "userList" : {
+        "titre" : "Users",
+        "description" : "PNC 2.0 User List",
+        "columnHeaders" : ["Profile", "Title or position", "Email PNC"]
     }
 }

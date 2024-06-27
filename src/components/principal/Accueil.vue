@@ -10,6 +10,7 @@
   var switcher = null;
 
   onMounted(() => {
+    // console.log("e");
     switcher = document.querySelector("#modeSwitcher");
   });
 </script>

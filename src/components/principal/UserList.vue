@@ -1,29 +1,17 @@
 <script setup>
-import { reactive, ref } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 import BeginComponent from '../reusable/BeginComponent.vue';
+import { API_BACK_URL, NB_COLUMN_USERS_TABLE } from '@/Constantes';
+import axios from 'axios';
+import { useI18n } from 'vue-i18n';
 
-const entityLists = reactive([
-    { id: 1, role: "SERVICE DE RENSEIGNEMENTS FINANCIERS", code: "SAMIFIN" },
-    { id: 2, role: "BUREAU INDEPENDANT ANTI-CORRUPTION", code: "BIANCO" },
-    { id: 3, role: "DIRECTION GENERALE DES DOUANES", code: "DGD" },
-    { id: 4, role: "COMMANDEMENT DE LA GENDARMERIE NATIONALE", code: "COMGN" },
-    { id: 5, role: "DIRECTION GENERALE DE LA POLICE NATIONALE", code: "DGPN" },
-    { id: 6, role: "DIRECTION GENERALE DES IMPOTS", code: "DGI" }
-]);
+const { t, locale } = useI18n();
+
+var userList = reactive({});
 
 const isModalVisible = ref(false);
 
-var modifEntityValue = reactive({
-    id: "",
-    role: "",
-    code: ""
-});
-
-function modifEntityModal(id) {
-    var entityModif = entityLists.find(entity => entity.id == id);
-    modifEntityValue.id = entityModif.id;
-    modifEntityValue.role = entityModif.role;
-    modifEntityValue.code = entityModif.code;
+function modifEntityModal() {
     isModalVisible.value = true;
 }
 
@@ -31,9 +19,29 @@ function closeModal() {
     isModalVisible.value = false;
 }
 
-function modifEntity() {
-    var entityModif = entityLists.find(entity => entity.id == modifEntityValue.id);
+async function getAllUserPaginate() {
+    try {
+        const token = sessionStorage.getItem("pnc_tokens");
+        const headers = {
+            Authorization: `Bearer ${token}`,
+        };
+        const url = API_BACK_URL + "/allUser/1";
+        const response = await axios.get(url, {headers : headers}); // Attendre la réponse de l'API
+        Object.assign(userList, response.data);
+        sessionStorage.setItem("entite_pnc", JSON.stringify(userList));
+    } catch (error) {
+        console.error(error);
+        alert(error);
+    }
 }
+
+onMounted(() => {
+    if (!sessionStorage.getItem("entite_pnc")) {
+        getAllUserPaginate();
+    } else {
+        Object.assign(userList, JSON.parse(sessionStorage.getItem("entite_pnc")));
+    }
+})
 </script>
 
 <template>
@@ -43,8 +51,12 @@ function modifEntity() {
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-12">
-                        <h2 class="mb-2 page-title">Entites</h2>
-                        <p class="card-text">Liste des entites travaillant en collaboration</p>
+                        <h2 class="mb-2 page-title">
+                            {{ t('userList.titre') }}
+                        </h2>
+                        <p class="card-text">
+                            {{ t('userList.description') }}
+                        </p>
                         <div class="row my-4">
                             <div class="col-md-12">
                                 <div class="card shadow">
@@ -52,29 +64,34 @@ function modifEntity() {
                                         <table class="table datatables" id="dataTable-1">
                                             <thead>
                                                 <tr>
-                                                    <th>Entite</th>
-                                                    <th>Code</th>
-                                                    <th>Actions</th>
+                                                    <th v-for="i in NB_COLUMN_USERS_TABLE">
+                                                        {{ t('userList.columnHeaders[' + (i - 1) + ']') }}
+                                                    </th>
+                                                    <!-- <th>Profil</th>
+                                                    <th>Titre ou fonction</th>
+                                                    <th>Email PNC</th> -->
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr v-for="entity in entityLists" :key="entity.id">
-                                                    <td>{{ entity.role }}</td>
-                                                    <td>{{ entity.code }}</td>
+                                                <tr v-for="user in userList.datas">
+                                                    <td>{{ user.id_profil.nom_profil }}</td>
+                                                    <td>{{ user.titre }}</td>
+                                                    <td>{{ user.email }}</td>
                                                     <td>
                                                         <button class="btn btn-primary btn-sm"
-                                                            @click="() => modifEntityModal(entity.id)">
-                                                            <i class="fas fa-edit"></i> Modifier
+                                                            @click="() => modifEntityModal()">
+                                                            <i class="fe fe-edit fe-16"></i>
                                                         </button>
                                                     </td>
                                                     <td>
                                                         <button class="btn btn-danger btn-sm">
-                                                            <i class="fas fa-trash-alt"></i> Supprimer
+                                                            <i class="fe fe-trash-2 fe-16"></i>
                                                         </button>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        <!-- Modal -->
                                     </div>
                                 </div>
                             </div> <!-- simple table -->
@@ -86,7 +103,7 @@ function modifEntity() {
         <div v-if="isModalVisible" class="modal-overlay">
             <div class="model">
                 <div class="modal-header">
-                    <h3>Modifier l'entite {{ modifEntityValue.code }}</h3>
+                    <h3>Modifier l'entite </h3>
                     <button @click="closeModal">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -96,12 +113,10 @@ function modifEntity() {
                                 <p class="mb-2"><strong>Input masks</strong></p>
                                 <div class="form-group mb-3">
                                     <label for="code">Code : </label>
-                                    <input class="form-control" id="code" type="text" name="code"
-                                        v-model="modifEntityValue.code" />
+                                    <input class="form-control" id="code" type="text" name="code" />
                                 </div>
                                 <label for="role">Role : </label>
-                                <input class="form-control" id="role" type="text" name="role"
-                                    v-model="modifEntityValue.role" />
+                                <input class="form-control" id="role" type="text" name="role" />
                             </div>
                         </div> <!-- /.card-body -->
                     </div> <!-- /.card -->

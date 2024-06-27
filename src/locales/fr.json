@@ -13,6 +13,18 @@
             "url" : "/customerLogin"
         }
     ],
+    "dropDownMenuLeft" : [
+        {
+            "icon" : "fe fe-users fe-16",
+            "name" : "Annuaire",
+            "url" : "/userLists"
+        },
+        {
+            "icon" : "fe fe-list fe-16",
+            "name" : "Entites",
+            "url" : ""
+        }
+    ],
     "pageAccueil": {
         "welcomeMessage": "Bienvenue sur la Plateforme National de Communication Malagasy",
         "introPhrase": "Chers collaborateurs,",
@@ -37,5 +49,10 @@
         "footerUseFullLinks": "Liens utiles",
         "partners" : "Partenaires",
         "droit" : "Tous droits réservés."
+    },
+    "userList" : {
+        "titre" : "Utilisateurs",
+        "description" : "Liste des utilisateurs du PNC 2.0",
+        "columnHeaders" : ["Profil", "Titre ou fonction", "Email PNC"]
     }
 }

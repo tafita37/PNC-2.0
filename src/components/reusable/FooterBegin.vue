@@ -1,9 +1,14 @@
 <script setup>
   import { NB_PAGE_HEADER_BEGIN } from '@/Constantes';
   import router from '@/router';
+import { onMounted } from 'vue';
   import { useI18n } from 'vue-i18n';
 
   const { t, locale } = useI18n();
+
+  onMounted(() => {
+    console.log("footer");
+  })
 </script>
 <template>
   <footer class="footer mt-auto py-3">

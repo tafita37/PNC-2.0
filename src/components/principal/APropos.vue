@@ -45,6 +45,7 @@
 
 
     onMounted(() => {
+        // console.log("e");
         switcher = document.querySelector("#modeSwitcher");
         if (visiblePage.length != 0) {
             className = "main-content";
