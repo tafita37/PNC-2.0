@@ -30,10 +30,6 @@ function modifEntityModal(id) {
 function closeModal() {
     isModalVisible.value = false;
 }
-
-function modifEntity() {
-    var entityModif = entityLists.find(entity => entity.id == modifEntityValue.id);
-}
 </script>
 
 <template>

@@ -10,14 +10,18 @@
         },
         {
             "name": "CONNECTION",
-            "url": "/customerLogin"
+            "url": "/customer/login"
+        },
+        {
+            "name" : "REGISTRATION",
+            "url" : "/customer/registration"
         }
     ],
     "dropDownMenuLeft" : [
         {
             "icon" : "fe fe-users fe-16",
             "name" : "Yearbook",
-            "url" : "/userLists"
+            "url" : "/userLists/1"
         },
         {
             "icon" : "fe fe-list fe-16",
@@ -45,6 +49,10 @@
         "connectMessage" : "Sign in",
         "connectSubmitButton" : "Login"
     },
+    "inscriptionClientPage" : {
+        "inscriptionMessage" : "Sign up",
+        "inscriptionSubmitButton" : "To register"
+    },
     "footer": {
         "footerUseFullLinks": "Useful links",
         "partners" : "Partners",
@@ -54,5 +62,6 @@
         "titre" : "Users",
         "description" : "PNC 2.0 User List",
         "columnHeaders" : ["Profile", "Title or position", "Email PNC"]
-    }
+    },
+    "refreshMessage" : "REFRESH"
 }

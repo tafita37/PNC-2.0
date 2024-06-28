@@ -10,14 +10,18 @@
         },
         {
             "name" : "CONNEXION",
-            "url" : "/customerLogin"
+            "url" : "/customer/login"
+        },
+        {
+            "name" : "INSCRIPTION",
+            "url" : "/customer/registration"
         }
     ],
     "dropDownMenuLeft" : [
         {
             "icon" : "fe fe-users fe-16",
             "name" : "Annuaire",
-            "url" : "/userLists"
+            "url" : "/userLists/1"
         },
         {
             "icon" : "fe fe-list fe-16",
@@ -45,6 +49,10 @@
         "connectMessage" : "Se connecter",
         "connectSubmitButton" : "Connectez-vous"
     },
+    "inscriptionClientPage" : {
+        "inscriptionMessage" : "Inscrivez vous",
+        "inscriptionSubmitButton" : "S'inscrire"
+    },
     "footer": {
         "footerUseFullLinks": "Liens utiles",
         "partners" : "Partenaires",
@@ -54,5 +62,6 @@
         "titre" : "Utilisateurs",
         "description" : "Liste des utilisateurs du PNC 2.0",
         "columnHeaders" : ["Profil", "Titre ou fonction", "Email PNC"]
-    }
+    },
+    "refreshMessage" : "RAFFRAICHIR"
 }

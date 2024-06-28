@@ -1,4 +1,4 @@
-export const NB_PAGE_HEADER_BEGIN=3;
+export const NB_PAGE_HEADER_BEGIN=4;
 
 export const NB_PAGE_DROPDOWN_LEFT=2;
 

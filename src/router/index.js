@@ -4,35 +4,14 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/adminBack',
-      component: () => import('../components/principal/LoginAdmin.vue'),
-      children: [
-        {
-          path: '',
-          name: 'loginAdminPage',
-          component: () => import('../components/principal/LoginAdmin.vue')
-        },
-        {
-          path: 'back',
-          name: 'backend',
-          component: () => import('../components/principal/Accueil.vue')
-        },
-        {
-          path: 'entityLists',
-          name: 'entities',
-          component: () => import('../components/principal/EntityList.vue')
-        }
-      ]
-    },
-    {
-      path: '/userLists',
-      name: 'users',
-      component: () => import('../components/principal/UserList.vue')
-    },
-    {
       path: '/',
       name: 'reception',
       component: () => import('../components/principal/Accueil.vue')
+    },
+    {
+      path: '/userLists/:numPage',
+      name: 'users',
+      component: () => import('../components/principal/UserList.vue')
     },
     {
       path: '/reception',
@@ -45,9 +24,29 @@ const router = createRouter({
       component: () => import('@/components/principal/APropos.vue')
     },
     {
-      path: '/customerLogin',
-      name: 'customerLogin',
-      component: () => import('@/components/principal/LoginClient.vue')
+      path : '/customer',
+      children : [
+        {
+          path: 'login',
+          name: 'customerLogin',
+          component: () => import('@/components/principal/LoginClient.vue')
+        },
+        {
+          path: 'registration',
+          children : [
+            {
+              path : '',
+              name: 'customerRegistration',
+              component: () => import('@/components/principal/InscriptionClient.vue')
+            },
+            {
+              path : 'saveMdp',
+              name : 'saveMdp',
+              component: () => import('@/components/principal/SaveMdp.vue')
+            }
+          ]
+        }
+      ]
     },
     {
       path: '/customerDashboard',
