@@ -52,29 +52,29 @@ onMounted(() => {
   curentTheme = localStorage.getItem("mode");
 });
 
-if (curentTheme) {
-  if (curentTheme === "dark") {
-    dark.disabled = false;
-    light.disabled = true;
-    colors = darkColor;
-  } else if (curentTheme === "light") {
-    dark.disabled = true;
-    light.disabled = false;
-  }
+// if (curentTheme) {
+//   if (curentTheme === "dark") {
+//     dark.disabled = false;
+//     light.disabled = true;
+//     colors = darkColor;
+//   } else if (curentTheme === "light") {
+//     dark.disabled = true;
+//     light.disabled = false;
+//   }
 
-  if (switcher) {
-    switcher.dataset.mode = curentTheme;
-  } else {
-    console.error('#modeSwitcher non trouvé dans le DOM');
-  }
-} else {
-  if ($("body").hasClass("dark")) {
-    colors = darkColor;
-    localStorage.setItem("mode", "dark");
-  } else {
-    localStorage.setItem("mode", "light");
-  }
-}
+//   if (switcher) {
+//     switcher.dataset.mode = curentTheme;
+//   } else {
+//     console.error('#modeSwitcher non trouvé dans le DOM');
+//   }
+// } else {
+//   if ($("body").hasClass("dark")) {
+//     colors = darkColor;
+//     localStorage.setItem("mode", "dark");
+//   } else {
+//     localStorage.setItem("mode", "light");
+//   }
+// }
 
 function collapse() {
   props.collapseFunction();

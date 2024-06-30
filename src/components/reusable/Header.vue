@@ -48,29 +48,29 @@ onMounted(() => {
   curentTheme = localStorage.getItem("mode");
 });
 
-if (curentTheme) {
-  if (curentTheme === "dark") {
-    dark.disabled = false;
-    light.disabled = true;
-    colors = darkColor;
-  } else if (curentTheme === "light") {
-    dark.disabled = true;
-    light.disabled = false;
-  }
+// if (curentTheme) {
+//   if (curentTheme === "dark") {
+//     dark.disabled = false;
+//     light.disabled = true;
+//     colors = darkColor;
+//   } else if (curentTheme === "light") {
+//     dark.disabled = true;
+//     light.disabled = false;
+//   }
 
-  if (switcher) {
-    switcher.dataset.mode = curentTheme;
-  } else {
-    console.error('#modeSwitcher non trouvé dans le DOM');
-  }
-} else {
-  if ($("body").hasClass("dark")) {
-    colors = darkColor;
-    localStorage.setItem("mode", "dark");
-  } else {
-    localStorage.setItem("mode", "light");
-  }
-}
+//   if (switcher) {
+//     switcher.dataset.mode = curentTheme;
+//   } else {
+//     console.error('#modeSwitcher non trouvé dans le DOM');
+//   }
+// } else {
+//   if ($("body").hasClass("dark")) {
+//     colors = darkColor;
+//     localStorage.setItem("mode", "dark");
+//   } else {
+//     localStorage.setItem("mode", "light");
+//   }
+// }
 
 function collapse() {
   props.collapseFunction();
@@ -147,7 +147,7 @@ function modeSwitch() {
         <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span class="avatar avatar-sm mt-2">
-            <img src="/src/assets/avatars/face-1.jpg" alt="..." class="avatar-img rounded-circle">
+            <img src="/assets/avatars/face-1.jpg" alt="..." class="avatar-img rounded-circle">
           </span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">

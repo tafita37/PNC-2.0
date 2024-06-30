@@ -61,7 +61,7 @@
     "userList" : {
         "titre" : "Users",
         "description" : "PNC 2.0 User List",
-        "columnHeaders" : ["Profile", "Title or position", "Email PNC"]
+        "columnHeaders" : ["Title or position", "Profile", "Entity"]
     },
     "refreshMessage" : "REFRESH"
 }

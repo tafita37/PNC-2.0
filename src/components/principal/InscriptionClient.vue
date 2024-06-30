@@ -123,6 +123,8 @@ const copyText = async () => {
 };
 
 onMounted(() => {
+    sessionStorage.removeItem("pnc_entites");
+    sessionStorage.removeItem("pnc_profiles");
     getAllEntite();
     getAllProfil();
 })

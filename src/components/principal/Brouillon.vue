@@ -17,7 +17,23 @@ var entityList = reactive({});
 
 var profilList = reactive({});
 
+const isModalVisible = ref(false);
+
 var nbPages = ref(1);
+
+var modifUserValue = reactive({
+    id: "",
+    id_entite: "",
+    id_profil: "",
+    titre: "",
+    nom_utilisateur: "",
+    prenom: "",
+    email: ""
+});
+
+function closeModal() {
+    isModalVisible.value = false;
+}
 
 async function getAllUserPaginate() {
     try {
@@ -56,6 +72,17 @@ async function getNbPageUser() {
 
 function changePage(pageNum) {
     router.push({ name: 'users', params: { numPage: pageNum } })
+}
+
+function modifyUserModal(id) {
+    var userModif = userList.datas.find(user => user.id == id);
+    modifUserValue.id = userModif.id;
+    modifUserValue.id_entite = userModif.id_entite.id;
+    modifUserValue.id_profil = userModif.id_profil.id;
+    modifUserValue.nom_utilisateur = userModif.nom_utilisateur;
+    modifUserValue.prenom = userModif.prenom;
+    modifUserValue.email = userModif.email;
+    isModalVisible.value = true;
 }
 
 async function getAllEntiteFromBase() {
@@ -143,6 +170,12 @@ watch(() => route.params.numPage, () => {
                                                     <td>{{ user.id_profil.nom }}</td>
                                                     <td>{{ user.id_entite.nom }}</td>
                                                     <td>
+                                                        <button class="btn btn-primary btn-sm"
+                                                            @click="() => modifyUserModal(user.id)">
+                                                            <i class="fe fe-edit fe-16"></i>
+                                                        </button>
+                                                    </td>
+                                                    <td>
                                                         <button class="btn btn-danger btn-sm">
                                                             <i class="fe fe-trash-2 fe-16"></i>
                                                         </button>
@@ -185,6 +218,54 @@ watch(() => route.params.numPage, () => {
                 </div> <!-- .row -->
             </div> <!-- .container-fluid -->
         </main>
+        <div v-if="isModalVisible" class="modal-overlay">
+            <div class="model">
+                <div class="modal-header">
+                    <h3>Modifier l'utilisateur </h3>
+                    <button @click="closeModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12">
+                        <div class="card shadow mb-4">
+                            <div class="card-body" @keypress.enter="">
+                                <p class="mb-2"><strong>Modifier l'utilisateur {{ modifUserValue.prenom }}</strong></p>
+                                <div class="form-group mb-3">
+                                    <label for="nom">Nom : </label>
+                                    <input class="form-control" id="nom" type="text"
+                                        v-model="modifUserValue.nom_utilisateur" />
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="prenom">Prenom : </label>
+                                    <input class="form-control" id="prenom" type="text"
+                                        v-model="modifUserValue.prenom" />
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="email">Email : </label>
+                                    <input class="form-control" id="email" type="email"
+                                        v-model="modifUserValue.email" />
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="entite">Entite : </label>
+                                    <select v-model="modifUserValue.id_entite" id="entite" class="form-control">
+                                        <option v-for="entity in entityList.datas" :value="entity.id">
+                                            {{ entity.nom }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="profil">Profil : </label>
+                                    <select v-model="modifUserValue.id_profil" id="profil" class="form-control">
+                                        <option v-for="profil in profilList.datas" :value="profil.id">
+                                            {{ profil.nom }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div> <!-- /.card-body -->
+                    </div> <!-- /.card -->
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 

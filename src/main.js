@@ -2,10 +2,10 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import i18n from './i18n'
-// Importer le fichier CSS de Bootstrap
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// Facultatif : Importer les fonctionnalités JavaScript de Bootstrap
-// import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+// import '@/assets/js/jquery.min.js';
+// import '@/assets/js/bootstrap.min.js';
+// import '@/assets/js/Chart.min.js';
+// import '@/assets/js/tinycolor-min.js';
 
 const app = createApp(App)
 
