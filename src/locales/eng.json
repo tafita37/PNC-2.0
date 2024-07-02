@@ -26,7 +26,7 @@
         {
             "icon" : "fe fe-list fe-16",
             "name" : "Entities",
-            "url" : "/"
+            "url" : "/entityList/1"
         }
     ],
     "pageAccueil": {
@@ -61,7 +61,12 @@
     "userList" : {
         "titre" : "Users",
         "description" : "PNC 2.0 User List",
-        "columnHeaders" : ["Title or position", "Profile", "Entity"]
+        "columnHeaders" : ["N", "Title or position", "Profile", "Entity"]
+    },
+    "entityList" : {
+        "titre" : "Entities",
+        "description" : "List of entities working collaboratively",
+        "columnHeaders" : ["N", "Entity", "Code", "Email"]
     },
     "refreshMessage" : "REFRESH"
 }

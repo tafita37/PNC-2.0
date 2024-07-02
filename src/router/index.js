@@ -4,6 +4,11 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path : '/mada',
+      name : 'mada',
+      component : () => import('../components/principal/MadagascarMap.vue')
+    },
+    {
       path: '/',
       name: 'reception',
       component: () => import('../components/principal/Accueil.vue')
@@ -12,6 +17,11 @@ const router = createRouter({
       path: '/userLists/:numPage',
       name: 'users',
       component: () => import('../components/principal/UserList.vue')
+    },
+    {
+      path: '/entityList/:numPage',
+      name: 'entities',
+      component: () => import('../components/principal/EntityList.vue')
     },
     {
       path: '/reception',

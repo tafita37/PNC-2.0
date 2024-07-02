@@ -8,8 +8,8 @@ const { t, locale } = useI18n();
 
 
 var customer = reactive({
-    id_entite: "",
-    id_profil: ""
+    entite: "",
+    profil: ""
 });
 
 var responseInscription = reactive({});
@@ -37,7 +37,7 @@ function inscriptionCustomer() {
             isGeneratedPassword.value=true;
             const interval = setInterval(() => {
                 nb.value -= 1; // Décrémenter le nombre de secondes
-                mdpText.value = "Email : ****@pnc.mg, Mdp : ****, Reste : " + nb.value;
+                mdpText.value = "Ezmail : ****@pnc.mg, Mdp : ****, Reste : " + nb.value;
                 if (nb.value <= 0) {
                     isGeneratedPassword.value=false;
                     clearInterval(interval); // Arrêter le chrono quand nb atteint 0
@@ -140,8 +140,8 @@ onMounted(() => {
                     {{ t('inscriptionClientPage.inscriptionMessage') }}
                 </h1>
                 <div class="form-group">
-                    <label for="nom_utilisateur" class="sr-only">Nom : </label>
-                    <input v-model="customer.nom_utilisateur" type="text" id="nom_utilisateur"
+                    <label for="nomUtilisateur" class="sr-only">Nom : </label>
+                    <input v-model="customer.nomUtilisateur" type="text" id="nomUtilisateur"
                         class="form-control form-control-lg" placeholder="Nom" />
                 </div>
                 <div class="form-group">
@@ -150,10 +150,10 @@ onMounted(() => {
                         placeholder="Prenom" />
                 </div>
                 <div class="form-group">
-                    <label for="id_entite" class="sr-only">
+                    <label for="entite" class="sr-only">
                         Entite :
                     </label>
-                    <select v-model="customer.id_entite" id="id_entite" class="form-control form-control-lg">
+                    <select v-model="customer.entite" id="entite" class="form-control form-control-lg">
                         <option value="">
                             Votre entite
                         </option>
@@ -163,10 +163,10 @@ onMounted(() => {
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="id_profil" class="sr-only">
+                    <label for="profil" class="sr-only">
                         Profil :
                     </label>
-                    <select v-model="customer.id_profil" id="id_profil" class="form-control form-control-lg">
+                    <select v-model="customer.profil" id="profil" class="form-control form-control-lg">
                         <option value="">
                             Votre profil
                         </option>

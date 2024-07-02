@@ -9,9 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@amcharts/amcharts4": "^4.10.39",
+    "@amcharts/amcharts5": "^5.9.12",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.3",
+    "ol": "^9.2.4",
     "vue": "^3.4.21",
     "vue-chartjs": "^5.3.1",
     "vue-i18n": "^9.13.1",

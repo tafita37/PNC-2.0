@@ -119,7 +119,7 @@ function modeSwitch() {
 </style>
 <template>
   <nav id="begin-header-id" class="topnav navbar navbar-light">
-    <img src="./../../assets/img/mg.jpeg" alt="" srcset="" width="50px" height="50px" />
+    <!-- <img src="./../../assets/img/mg.jpeg" alt="" srcset="" width="50px" height="50px" /> -->
     <!-- PNC -->
     <ul class="nav">
       <li class="nav-item">
